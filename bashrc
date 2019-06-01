@@ -49,10 +49,10 @@ unset use_color safe_term match_lhs sh
 
 #
 # colors - Display color palette
-# usage: colors 
+# usage: colors
 #
 
-colors() 
+colors()
 {
 	local fgc bgc vals seq0
 
@@ -130,6 +130,10 @@ alias df='df -h'               # human-readable sizes
 alias free='free -m'           # show sizes in MB
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
+
+# Add user path binaries
+export PATH=$HOME/.local/bin:$PATH
+export envs=$HOME/envs/
 
 ###############################################################################
 #                                   Main                                      #

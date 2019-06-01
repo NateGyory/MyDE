@@ -9,7 +9,7 @@ nnoremap <Space>h <C-w>h
 nnoremap <Space>j <C-w>j
 nnoremap <Space>k <C-w>k
 nnoremap <Space>l <C-w>l
-nnoremap <Space>n :NERDTree<Cr>
+nnoremap <Space>n :NERDTreeToggle<Cr>
 
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 " !                               Functions                            !
@@ -43,11 +43,23 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
+" Neomake settings
+:highlight NeomakeWarningSign ctermfg=Yellow ctermbg=Black
+:highlight NeomakeErrorSign ctermfg=Red ctermbg=Black
+:highlight NeomakeVirtualtextWarning ctermfg=Yellow ctermbg=Black
+:highlight NeomakeVirtualtextError ctermfg=Red ctermbg=Black
+let g:neomake_warning_sign = {
+    \   'text': '⚠',
+    \   'texthl': 'NeomakeWarningSign',
+    \ }
+
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 " !                                Plugins                             !
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'w0rp/ale'
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'neomake/neomake'
+
 call plug#end()
