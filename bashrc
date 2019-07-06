@@ -123,7 +123,7 @@ distroArt()
     fi
 }
 
-alias v=nvim
+alias v=/usr/local/bin/nvim
 alias q=exit
 alias cp="cp -i"               # confirm before overwriting something
 alias df='df -h'               # human-readable sizes
@@ -132,8 +132,11 @@ alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 
 # Add user path binaries
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH
 export envs=$HOME/envs/
+
+# Case ignore autocomplete
+bind "set completion-ignore-case on"
 
 ###############################################################################
 #                                   Main                                      #

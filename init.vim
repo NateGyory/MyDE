@@ -1,7 +1,6 @@
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 " !                              Key Mappings                          !
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
 nnoremap <Space>q :q<Cr>
 nnoremap <Space>w :w<Cr>
 nnoremap <Space><Space> <C-w>w
@@ -10,6 +9,18 @@ nnoremap <Space>j <C-w>j
 nnoremap <Space>k <C-w>k
 nnoremap <Space>l <C-w>l
 nnoremap <Space>n :NERDTreeToggle<Cr>
+nnoremap <Space>t :TagbarToggle<CR>
+
+" TODO
+" 1) write a nested char and have it close but with the cursor in the middle
+
+
+" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+" !                               Autocmds                             !
+" !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+autocmd BufWrite * :Neomake
+autocmd CompleteDone * silent! pclose!
 
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 " !                               Functions                            !
@@ -44,14 +55,20 @@ autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
 " Neomake settings
-:highlight NeomakeWarningSign ctermfg=Yellow ctermbg=Black
-:highlight NeomakeErrorSign ctermfg=Red ctermbg=Black
-:highlight NeomakeVirtualtextWarning ctermfg=Yellow ctermbg=Black
-:highlight NeomakeVirtualtextError ctermfg=Red ctermbg=Black
+:highlight NeomakeWarningSign ctermfg=Yellow
+:highlight NeomakeErrorSign ctermfg=Red
+:highlight NeomakeVirtualtextWarning ctermfg=Yellow
+:highlight NeomakeVirtualtextError ctermfg=Red
 let g:neomake_warning_sign = {
     \   'text': '⚠',
     \   'texthl': 'NeomakeWarningSign',
     \ }
+
+" Deoplete settings
+let g:deoplete#enable_at_startup = 1
+
+highlight PMenu ctermfg=Grey ctermbg=Black
+highlight PMenuSel ctermfg=White gui=bold ctermbg=0 guibg=DarkBlue
 
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 " !                                Plugins                             !
@@ -61,5 +78,13 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'neomake/neomake'
+Plug 'Shougo/deoplete.nvim'
+Plug 'majutsushi/tagbar'
+Plug 'tpope/vim-surround'
+Plug 'bling/vim-airline'
+Plug 'mattn/emmet-vim', { 'for' : [ 'javascript', 'html', 'css' ] }
+" C/C++ specific plugins
+Plug 'shougo/deoplete-clangx', { 'for' : [ 'c', 'cpp' ] }
+Plug 'shougo/neoinclude.vim', { 'for' : [ 'c', 'cpp' ] }
 
 call plug#end()
