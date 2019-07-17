@@ -11,10 +11,6 @@ nnoremap <Space>l <C-w>l
 nnoremap <Space>n :NERDTreeToggle<Cr>
 nnoremap <Space>t :TagbarToggle<CR>
 
-" TODO
-" 1) write a nested char and have it close but with the cursor in the middle
-
-
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 " !                               Autocmds                             !
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -34,7 +30,7 @@ endfunction
 " !                               Formatting                           !
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-" TABS
+" TABS General
 filetype plugin indent on
 " show existing tab with 4 spaces width
 set tabstop=4
@@ -42,6 +38,10 @@ set tabstop=4
 set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
+
+" TABS for JS, JSX and Ruby
+autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
+autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
 
 " Trailing whitespace alert
 "  1) highlight trailing whitespace in red
@@ -70,19 +70,37 @@ let g:deoplete#enable_at_startup = 1
 highlight PMenu ctermfg=Grey ctermbg=Black
 highlight PMenuSel ctermfg=White gui=bold ctermbg=0 guibg=DarkBlue
 
+" Ruby LSP
+if executable('solargraph')
+    " gem install solargraph
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'solargraph',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'solargraph stdio']},
+        \ 'initialization_options': {"diagnostics": "true"},
+        \ 'whitelist': ['ruby'],
+        \ })
+endif
+
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-" !                                Plugins                             !
+" !                                Plugs                             !
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'neomake/neomake'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/deoplete.nvim' , { 'do': ':UpdateRemotePlugs' }
+" Plug 'prabirshrestha/asyncomplete.vim'
+" Plug 'prabirshrestha/async.vim'
+" Plug 'prabirshrestha/vim-lsp'
+" Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 Plug 'bling/vim-airline'
 Plug 'mattn/emmet-vim', { 'for' : [ 'javascript', 'html', 'css' ] }
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
 " C/C++ specific plugins
 Plug 'shougo/deoplete-clangx', { 'for' : [ 'c', 'cpp' ] }
 Plug 'shougo/neoinclude.vim', { 'for' : [ 'c', 'cpp' ] }
