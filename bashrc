@@ -1,49 +1,6 @@
 # My bashrc
 
 ###############################################################################
-#                            KDE Specific Setting                             #
-###############################################################################
-
-# KDE terminal color scheme
-# Remove for non KDE env
-
-safe_term=${TERM//[^[:alnum:]]/?}   # sanitize TERM
-match_lhs=""
-[[ -f ~/.dir_colors   ]] && match_lhs="${match_lhs}$(<~/.dir_colors)"
-[[ -f /etc/DIR_COLORS ]] && match_lhs="${match_lhs}$(</etc/DIR_COLORS)"
-[[ -z ${match_lhs}    ]] \
-	&& type -P dircolors >/dev/null \
-	&& match_lhs=$(dircolors --print-database)
-[[ $'\n'${match_lhs} == *$'\n'"TERM "${safe_term}* ]] && use_color=true
-
-if ${use_color} ; then
-	# Enable colors for ls, etc.  Prefer ~/.dir_colors #64489
-	if type -P dircolors >/dev/null ; then
-		if [[ -f ~/.dir_colors ]] ; then
-			eval $(dircolors -b ~/.dir_colors)
-		elif [[ -f /etc/DIR_COLORS ]] ; then
-			eval $(dircolors -b /etc/DIR_COLORS)
-		fi
-	fi
-
-	if [[ ${EUID} == 0 ]] ; then
-		PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$\[\033[00m\] '
-	else
-		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
-	fi
-
-else
-	if [[ ${EUID} == 0 ]] ; then
-		# show root@ when we don't have colors
-		PS1='\u@\h \W \$ '
-	else
-		PS1='\u@\h \w \$ '
-	fi
-fi
-
-unset use_color safe_term match_lhs sh
-
-###############################################################################
 #                               Bash Commands                                 #
 ###############################################################################
 
@@ -116,6 +73,7 @@ extract ()
 
 distroArt()
 {
+
     if [ -x "$(command -v neofetch)" ]; then
         neofetch
     else
@@ -123,20 +81,31 @@ distroArt()
     fi
 }
 
+###############################################################################
+#                               Aliases and exports                           #
+###############################################################################
 alias v=/usr/local/bin/nvim
 alias q=exit
 alias cp="cp -i"               # confirm before overwriting something
 alias df='df -h'               # human-readable sizes
 alias free='free -m'           # show sizes in MB
-alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
 
+# Mac settings
+source ~/.macrc
+
+# PG settings
+source ~/.pgrc
+
 # Add user path binaries
-export PATH=$HOME/.local/bin:$HOME/.gem/ruby/2.6.0/bin:$PATH
-export envs=$HOME/envs/
+export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
+
+# My env variables
+export envs=$HOME/Envs/
 
 # Case ignore autocomplete
-bind "set completion-ignore-case on"
+# bind "set completion-ignore-case on"
 
 ###############################################################################
 #                                   Main                                      #
@@ -145,5 +114,4 @@ bind "set completion-ignore-case on"
 echo "Welcome!"
 
 distroArt
-
 

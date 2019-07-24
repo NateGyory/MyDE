@@ -10,6 +10,15 @@ nnoremap <Space>k <C-w>k
 nnoremap <Space>l <C-w>l
 nnoremap <Space>n :NERDTreeToggle<Cr>
 nnoremap <Space>t :TagbarToggle<CR>
+nnoremap <Space>f :Files<CR>
+nnoremap <Space>a :Ack! 
+nnoremap <Space>gh :GitGutterLineHighlightsToggle<CR>
+nnoremap <Space>gn :GitGutterNextHunk<CR>
+nnoremap <Space>gp :GitGutterPrevHunk<CR>
+nnoremap <Space>ga :GitGutterStageHunk<CR>
+nnoremap <Space>gv :GitGutterPreviewHunk<CR>
+nnoremap <Space>gu :GitGutterUndoHunk<CR>
+nnoremap <Space>gf :GitGutterFold<CR>
 
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 " !                               Autocmds                             !
@@ -81,8 +90,13 @@ if executable('solargraph')
         \ })
 endif
 
+" Ag mapping to ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-" !                                Plugs                             !
+" !                                Plugs                               !
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 call plug#begin('~/.vim/plugged')
@@ -98,10 +112,14 @@ Plug 'majutsushi/tagbar'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
 Plug 'bling/vim-airline'
-Plug 'mattn/emmet-vim', { 'for' : [ 'javascript', 'html', 'css' ] }
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
-" C/C++ specific plugins
+Plug 'mileszs/ack.vim'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+" FileType specific plugins
+Plug 'mattn/emmet-vim', { 'for' : [ 'javascript', 'html', 'css' ] }
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'shougo/deoplete-clangx', { 'for' : [ 'c', 'cpp' ] }
 Plug 'shougo/neoinclude.vim', { 'for' : [ 'c', 'cpp' ] }
 

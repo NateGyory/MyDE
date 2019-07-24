@@ -1,0 +1,5 @@
+# bashrc extension for pg
+
+alias killpg="lsof -i :3000 | grep ruby | awk '{print \$2}' | xargs kill -9"
+alias grpc="cd ~/Dev/policygenius && bundle exec rails runner grpc_server.rb"
+alias rubochopit="git diff --name-only origin/master | grep "\.rb$" | xargs -n 1 bin/bundle exec rubocop -a"
