@@ -1,4 +1,0 @@
-# bashrc extension for mac
-
-alias ls='ls -G'
-export PATH=/usr/local/Cellar/postgresql@9.6/9.6.14/bin:$PATH

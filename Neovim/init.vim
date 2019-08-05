@@ -75,6 +75,7 @@ let g:neomake_warning_sign = {
 
 " Deoplete settings
 let g:deoplete#enable_at_startup = 1
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 highlight PMenu ctermfg=Grey ctermbg=Black
 highlight PMenuSel ctermfg=White gui=bold ctermbg=0 guibg=DarkBlue

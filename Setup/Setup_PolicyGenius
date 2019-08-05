@@ -1,2 +1,9 @@
+#!/bin/bash
+
 alias cdh="cd ~/Dev/policygenius"
+
 cdh
+
+rvm use 2.3.6@policygenius
+rvm list
+rvm gemset list

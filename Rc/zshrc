@@ -1,0 +1,29 @@
+#!/bin/bash
+
+source ~/.bashrc
+source $ZSH/oh-my-zsh.sh
+
+export ZSH=$HOME/.oh-my-zsh
+export UPDATE_ZSH_DAYS=14
+export LANG=en_US.UTF-8
+
+ZSH_THEME="robbyrussell"
+
+plugins=(
+git
+colored-man-pages
+colorize
+command-not-found
+common-aliases
+fzf
+systemd
+github
+ruby
+python
+zsh-syntax-highlighting
+docker
+docker-compose
+kubectl
+zsh-autosuggestions
+alias-tips
+)

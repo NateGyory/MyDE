@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export GEMFURY_KEY="yCxGgxk1W63JE7zJr2rU"
+export GOOGLE_CLIENT_ID="622148890639-869ci21gvp1suh3r5i170122756573i8.apps.googleusercontent.com"
+export GOOGLE_CLIENT_SECRET="biPRPnZ4eUvAszhU3Gv5J2ys"

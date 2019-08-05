@@ -7,15 +7,15 @@ mkdir -p ~/Envs/
 
 # Setup symlinks
 if [ ! -f ~/.config/nvim/init.vim ]; then
-    ln -s ./Neovim/init.vim ~/.config/nvim/
+    ln -s ~/Dev/MyDE/Neovim/init.vim ~/.config/nvim/
 fi
 
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
-    ln -s ./Neovim/plug.vim ~/.local/share/nvim/site/autoload/
+    ln -s ~/Dev/MyDE/Neovim/plug.vim ~/.local/share/nvim/site/autoload/
 fi
 
 if [ ! -f ~/.tmux.conf ]; then
-    ln -s ./Tmux/tmux.conf ~/.tmux.conf
+    ln -s ~/Dev/MyDE/Tmux/tmux.conf ~/.tmux.conf
 fi
 
 for filePath in "./Rc"/*

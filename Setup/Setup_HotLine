@@ -1,2 +1,9 @@
+#!/bin/bash
+
 alias cdh="cd ~/Dev/hotline"
+
 cdh
+
+rvm use 2.4.3@hotline
+rvm list
+rvm gemset list

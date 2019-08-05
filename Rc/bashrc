@@ -1,4 +1,4 @@
-# My bashrc
+#!/bin/bash
 
 ###############################################################################
 #                               Bash Commands                                 #
@@ -84,34 +84,34 @@ distroArt()
 ###############################################################################
 #                               Aliases and exports                           #
 ###############################################################################
-alias v=/usr/local/bin/nvim
+alias v=/usr/bin/nvim
 alias q=exit
 alias cp="cp -i"               # confirm before overwriting something
 alias df='df -h'               # human-readable sizes
 alias free='free -m'           # show sizes in MB
 alias grep='grep --colour=auto'
+alias myde='source $envs/Setup_MyDE'
+alias build='cd ~/Build'
 
-# Mac settings
-source ~/.macrc
+# Git
+alias git-log='git log --graph --decorate --all'
 
 # PG settings
 source ~/.pgrc
 
+# NVM env variables
+source /usr/share/nvm/init-nvm.sh
+
+# RVM env variables
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 # Add user path binaries
 export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.gem/ruby/2.6.0/bin:$PATH
 
 # My env variables
-export envs=$HOME/Envs/
-
-# Case ignore autocomplete
-# bind "set completion-ignore-case on"
+export envs=$HOME/Envs
 
 ###############################################################################
 #                                   Main                                      #
 ###############################################################################
-
-echo "Welcome!"
-
 distroArt
-
