@@ -84,7 +84,7 @@ distroArt()
 ###############################################################################
 #                               Aliases and exports                           #
 ###############################################################################
-alias v=/usr/bin/nvim
+alias v=/usr/local/bin/nvim
 alias q=exit
 alias cp="cp -i"               # confirm before overwriting something
 alias df='df -h'               # human-readable sizes
@@ -99,14 +99,8 @@ alias git-log='git log --graph --decorate --all'
 # PG settings
 source ~/.pgrc
 
-# NVM env variables
-source /usr/share/nvm/init-nvm.sh
-
-# RVM env variables
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# Add user path binaries
-export PATH=$HOME/.local/bin:$PATH
+# User binaries
+export PATH=~/.local/bin:$PATH
 
 # My env variables
 export envs=$HOME/Envs

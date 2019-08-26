@@ -1,0 +1,8 @@
+#!/bin/bash
+
+alias cdh="cd ~/Dev/briefcase"
+cdh
+
+rvm use 2.3.6@briefcase
+rvm list
+rvm gemset list

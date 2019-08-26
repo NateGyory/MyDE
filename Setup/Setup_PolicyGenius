@@ -1,7 +1,6 @@
 #!/bin/bash
 
 alias cdh="cd ~/Dev/policygenius"
-
 cdh
 
 rvm use 2.3.6@policygenius
