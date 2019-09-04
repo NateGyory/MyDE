@@ -3,7 +3,7 @@
 source ~/.keyrc
 
 alias killpg="lsof -i :3000 | grep ruby | awk '{print \$2}' | xargs kill -9"
-alias grpc="cd ~/Dev/policygenius && bundle exec rails runner grpc_server.rb"
+alias grpc="cd ~/Dev/policygenius && bin/spring stop && bundle exec rails runner grpc_server.rb"
 alias rubochopit="git diff --name-only origin/master | grep "\.rb$" | xargs -n 1 bin/bundle exec rubocop -a"
 alias accordion='source $envs/Setup_Accordian'
 alias accordion_admin='source $envs/Setup_Accordian-Admin'
@@ -11,3 +11,18 @@ alias policygenius='source $envs/Setup_PolicyGenius'
 alias hotline='source $envs/Setup_HotLine'
 alias umbrella='source $envs/Setup_Umbrella'
 alias umbrella_automations='source $envs/Setup_UmbrellaAutomations'
+alias briefcase='source $envs/Setup_Briefcase'
+alias cloud='source $envs/Setup_CloudFunctions'
+alias actuary='source $envs/Setup_Actuary'
+alias home-and-auto='source $envs/Setup_HomeAndAuto'
+
+# for graphql rake task
+export UMBRELLA_PROJECT_PATH=~/Dev/umbrella/
+# elasticsearch
+export PATH=~/Build/elasticsearch-5.6.0/bin:$PATH
+
+# NVM env variables
+source /usr/share/nvm/init-nvm.sh
+
+# RVM env variables
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

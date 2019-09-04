@@ -77,10 +77,16 @@ let g:neomake_warning_sign = {
 highlight PMenu ctermfg=Grey ctermbg=Black
 highlight PMenuSel ctermfg=White gui=bold ctermbg=0 guibg=DarkBlue
 
+" Vim hardtime
+let g:hardtime_showmsg = 1
+
 " Ag mapping to ack.vim
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
 endif
+
+" Set relative line numbers by default
+set rnu
 
 " Coc settingings
 
@@ -181,6 +187,7 @@ Plug 'mileszs/ack.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'sjl/gundo.vim'
+Plug 'takac/vim-hardtime'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 " FileType specific plugins
 Plug 'mattn/emmet-vim', { 'for' : [ 'javascript', 'html', 'css' ] }
