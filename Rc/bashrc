@@ -47,6 +47,17 @@ distroArt()
     fi
 }
 
+blt()
+{
+    if [ $BACKLIGHT -eq 0 ]; then
+        xset led
+        export BACKLIGHT=1
+    else
+        xset -led
+        export BACKLIGHT=0
+    fi
+}
+
 ###############################################################################
 #                               Aliases and exports                           #
 ###############################################################################
@@ -58,6 +69,8 @@ alias free='free -m'           # show sizes in MB
 alias grep='grep --colour=auto'
 alias myde='source $envs/Setup_MyDE'
 alias build='cd ~/Build'
+alias dev='cd ~/Build'
+alias dev='cd ~/Dev'
 
 # Git
 alias git-log='git log --graph --decorate --all'
@@ -67,11 +80,14 @@ if [ -f ~/.pgrc ]; then
     source ~/.pgrc
 fi
 
-# User binaries
-export PATH=~/.local/bin:$PATH
-
-# My env variables
+# Exports
 export envs=$HOME/Envs
+export BACKLIGHT=0
+export GOBIN=~/.local/share/go/bin
+export GOPATH=~/.local/share/go/
+# My PATH
+export PATH=~/.local/bin:$PATH
+export PATH=$GOBIN:$PATH
 
 ###############################################################################
 #                                   Main                                      #

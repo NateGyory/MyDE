@@ -15,6 +15,9 @@ alias briefcase='source $envs/Setup_Briefcase'
 alias cloud='source $envs/Setup_CloudFunctions'
 alias actuary='source $envs/Setup_Actuary'
 alias home-and-auto='source $envs/Setup_HomeAndAuto'
+alias bifrost='BIFROST_CONFIG_PATH=. sudo -E bifrost'
+
+alias gold-rush='cd ~/Dev/gold-rush'
 
 # for graphql rake task
 export UMBRELLA_PROJECT_PATH=~/Dev/umbrella/

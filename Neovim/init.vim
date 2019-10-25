@@ -11,6 +11,7 @@ nnoremap <Space>l <C-w>l
 nnoremap <Space>r :cclose<Cr>
 nnoremap <Space>e :copen<Cr>
 nnoremap <Space>n :NERDTreeToggle<Cr>
+nnoremap <Space>m :NERDTreeFind<CR>
 nnoremap <Space>s :set rnu<Cr>
 nnoremap <Space>d :set nornu<Cr>
 nnoremap <Space>v :vsplit<CR><C-w>w
@@ -19,6 +20,10 @@ nnoremap <Space>y :TagbarClose<CR>
 nnoremap <Space>f :Files<CR>
 nnoremap <Space>a :Ack! 
 nnoremap <Space>c :noh<Cr>
+nnoremap gn :GitGutterNextHunk<Cr>
+nnoremap gp :GitGutterPrevHunk<Cr>
+nnoremap ggf :GitGutterFold<Cr>
+nnoremap gb :Gblame<Cr>
 imap jk <Esc>
 
 " !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -87,6 +92,9 @@ endif
 
 " Set relative line numbers by default
 set rnu
+
+" Delve: Go debugger
+let g:delve_backend = "native"
 
 " Coc settingings
 
@@ -189,9 +197,13 @@ Plug 'junegunn/fzf.vim'
 Plug 'sjl/gundo.vim'
 Plug 'takac/vim-hardtime'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'sebdah/vim-delve'
 " FileType specific plugins
 Plug 'mattn/emmet-vim', { 'for' : [ 'javascript', 'html', 'css' ] }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'shougo/neoinclude.vim', { 'for' : [ 'c', 'cpp' ] }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
+Plug 'stamblerre/gocode', {'rtp': 'nvim/'}
+Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
 
 call plug#end()
