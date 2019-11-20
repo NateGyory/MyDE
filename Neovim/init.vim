@@ -57,6 +57,7 @@ set expandtab
 " TABS for JS, JSX and Ruby
 autocmd Filetype ruby setlocal ts=2 sw=2 expandtab
 autocmd Filetype javascript setlocal ts=2 sw=2 expandtab
+autocmd Filetype yaml setlocal ts=2 sw=2 expandtab
 
 " Trailing whitespace alert
 "  1) highlight trailing whitespace in red
@@ -69,16 +70,7 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-" Neomake settings
-:highlight NeomakeWarningSign ctermfg=Yellow
-:highlight NeomakeErrorSign ctermfg=Red
-:highlight NeomakeVirtualtextWarning ctermfg=Yellow
-:highlight NeomakeVirtualtextError ctermfg=Red
-let g:neomake_warning_sign = {
-    \   'text': '⚠',
-    \   'texthl': 'NeomakeWarningSign',
-    \ }
-
+" Popup menu color
 highlight PMenu ctermfg=Grey ctermbg=Black
 highlight PMenuSel ctermfg=White gui=bold ctermbg=0 guibg=DarkBlue
 

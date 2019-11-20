@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.keyrc
+# source ~/.keyrc
 
 alias killpg="lsof -i :3000 | grep ruby | awk '{print \$2}' | xargs kill -9"
 alias grpc="cd ~/Dev/policygenius && bin/spring stop && bundle exec rails runner grpc_server.rb"
@@ -18,6 +18,7 @@ alias home-and-auto='source $envs/Setup_HomeAndAuto'
 alias bifrost='BIFROST_CONFIG_PATH=. sudo -E bifrost'
 
 alias gold-rush='cd ~/Dev/gold-rush'
+alias mountebank='cd ~/Dev/MB'
 
 # for graphql rake task
 export UMBRELLA_PROJECT_PATH=~/Dev/umbrella/
@@ -25,7 +26,7 @@ export UMBRELLA_PROJECT_PATH=~/Dev/umbrella/
 export PATH=~/Build/elasticsearch-5.6.0/bin:$PATH
 
 # NVM env variables
-source /usr/share/nvm/init-nvm.sh
+# source /usr/share/nvm/init-nvm.sh
 
 # RVM env variables
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
