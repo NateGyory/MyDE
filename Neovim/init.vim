@@ -192,6 +192,7 @@ Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'sebdah/vim-delve'
 " FileType specific plugins
 Plug 'mattn/emmet-vim', { 'for' : [ 'javascript', 'html', 'css' ] }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
 Plug 'shougo/neoinclude.vim', { 'for' : [ 'c', 'cpp' ] }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
