@@ -1,49 +1,59 @@
 #!/bin/bash
 
-# Setup folders
+#Setup folders
 mkdir -p ~/.config/nvim/
 mkdir -p ~/.local/share/nvim/site/autoload/
 
 echo "Setting up environment"
 cat ./farfrompuken.txt
 
+user=$USER
+
 # Ask for line to execute for package manager
 
 read -p 'Enter package manager install command: ' pkgCmd
+read -p 'Enter terminal command: ' terminalCmd
 
 if ! hash neofetch 2>/dev/null
 then
+    echo "====================================================================="
     echo "Installing neofetch"
     eval "$pkgCmd neofetch"
 fi
 
 if ! hash nvim 2>/dev/null
 then
+    echo "====================================================================="
     echo "Installing neovim"
-    eval "$pkgCmd nvim"
+    eval "$pkgCmd neovim"
 fi
 
 if ! hash tmux 2>/dev/null
 then
+    echo "====================================================================="
     echo "Installing tmux"
     eval "$pkgCmd tmux"
 fi
 
 if ! hash fzf 2>/dev/null
 then
+    echo "====================================================================="
     echo "Installing fzf"
     eval "$pkgCmd fzf"
 fi
 
 if ! hash ag 2>/dev/null
 then
+    echo "====================================================================="
     echo "Installing ag"
     eval "$pkgCmd the_silver_searcher"
 fi
 
 if ! hash git 2>/dev/null
 then
-    echo "git did not install correctly. Please manually install"
+    echo "====================================================================="
+    echo "Installing git"
+    eval "$pkgCmd git"
 fi
 
 # Setup symlinks
@@ -70,22 +80,6 @@ if [ ! -f ~/.tmux.conf.local ]; then
     ln -s ~/Dev/MyDE/Tmux/tmux.conf.local ./.tmux.conf.local
     popd
 fi
-
-pushd ~
-# Get oh-my-zsh and plugins
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-pushd .oh-my-zsh/plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-git clone https://github.com/zsh-users/zsh-autosuggestions.git
-
-popd
-popd
-
-pushd ~
-rm -f .zshrc
-ln -s ~/Dev/MyDE/Rc/zshrc ./.zshrc
-popd
 
 # Check required software
 if ! hash nvim 2>/dev/null
@@ -118,4 +112,19 @@ then
     echo "git did not install correctly. Please manually install"
 fi
 
-echo "Reboot teminal to register changes"
+# Get oh-my-zsh and plugins
+getOMZ='sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
+eval '$terminalCmd $getomz'
+
+pushd .oh-my-zsh/plugins
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+git clone https://github.com/zsh-users/zsh-autosuggestions.git
+git clone https://github.com/djui/alias-tips.git
+popd
+
+pushd ~
+rm -f .zshrc
+ln -s ~/Dev/MyDE/Rc/zshrc ./.zshrc
+popd
+
+chsh --shell /bin/zsh $user
