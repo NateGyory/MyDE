@@ -1,9 +1,7 @@
 #!/bin/bash
 
-# source ~/.keyrc
-
 alias killpg="lsof -i :3000 | grep ruby | awk '{print \$2}' | xargs kill -9"
-alias grpc="cd ~/Dev/policygenius && bin/spring stop && bundle exec rails runner grpc_server.rb"
+alias grpc="policygenius && bin/spring stop && bundle exec rails runner grpc_server.rb"
 alias rubochopit="git diff --name-only origin/master | grep "\.rb$" | xargs -n 1 bin/bundle exec rubocop -a"
 alias accordion='source $envs/Setup_Accordian'
 alias accordion_admin='source $envs/Setup_Accordian-Admin'
@@ -16,17 +14,22 @@ alias cloud='source $envs/Setup_CloudFunctions'
 alias actuary='source $envs/Setup_Actuary'
 alias home-and-auto='source $envs/Setup_HomeAndAuto'
 alias bifrost='BIFROST_CONFIG_PATH=. sudo -E bifrost'
+alias business_submissions='cd ~/Dev/new-business-submission'
 
 alias gold-rush='cd ~/Dev/gold-rush'
 alias mountebank='cd ~/Dev/MB'
 
 # for graphql rake task
 export UMBRELLA_PROJECT_PATH=~/Dev/umbrella/
+
 # elasticsearch
 export PATH=~/Build/elasticsearch-5.6.0/bin:$PATH
 
-# NVM env variables
-# source /usr/share/nvm/init-nvm.sh
+# GOLD_RUSH env for debug container
+export GOLD_RUSH=/home/nate/Dev/gold-rush
 
-# RVM env variables
+export PATH="$PATH:$HOME/.rvm/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+source $HOME/.pgkeys
+source $HOME/.rvmrc

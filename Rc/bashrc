@@ -1,4 +1,5 @@
 #!/bin/bash
 
-# Everything is in zshrc
-zsh
+# These need to be sourced from a bash script
+
+source /opt/asdf-vm/asdf.sh

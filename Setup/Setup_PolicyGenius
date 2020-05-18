@@ -3,6 +3,6 @@
 alias cdh="cd ~/Dev/policygenius"
 cdh
 
-rvm use 2.3.6@policygenius
+rvm use 2.4.5@policygenius
 rvm list
 rvm gemset list
