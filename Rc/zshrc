@@ -56,7 +56,7 @@ alias cp="cp -i"               # confirm before overwriting something
 alias df='df -h'               # human-readable sizes
 alias free='free -m'           # show sizes in MB
 alias grep='grep --colour=auto'
-alias myde='cd $HOME/Dev/MyDE'
+alias myde='cd $HOME/Development/MyDE'
 alias build='cd ~/Build'
 alias dev='cd ~/Dev'
 alias notes='cd ~/Documents/Notes'
@@ -76,49 +76,29 @@ fi
 # Exports
 export envs=$HOME/Envs
 export TERMINAL=konsole
-export GOBIN=~/.local/share/go/bin
-export GOPATH=~/.local/share/go/
 export EDITOR=nvim
 export VISUAL=nvim
-export JUPYTERLAB_DIR=$HOME/.local/share/jupyter/lab
 
 # My PATH
 export PATH=~/.local/bin:$PATH
-export PATH=$GOBIN:$PATH
-export PATH=/home/nate/Dev/staging/include/linux/:$PATH
-export PATH=/home/nate/Dev/flutter/bin:$PATH
-export PATH=/home/nate/Dev/flutter/bin/cache/dart-sdk/bin:$PATH
 export PATH=/opt:$PATH
 export PATH=/home/nate/.fonts:$PATH
-export PATH=/home/nate/.asdf/installs/python/3.8.2/bin/:$PATH
 
 # ZSH specifics
-export ZSH="/home/nate/.oh-my-zsh"
+export ZSH="/home/nate/.local/share/oh-my-zsh"
 export UPDATE_ZSH_DAYS=14
 export LANG=en_US.UTF-8
-
-# XDG config files
-export XDG_CONFIG_DIRS=/etc/xdg/
 
 ZSH_THEME="robbyrussell"
 
 plugins=(
-git
-colored-man-pages
-colorize
-command-not-found
-common-aliases
-fzf
-systemd
-github
-ruby
-python
 zsh-syntax-highlighting
-docker
-docker-compose
-kubectl
 zsh-autosuggestions
 alias-tips
+git
+systemd
+colored-man-pages
+fzf
 )
 
 source $HOME/.bashrc

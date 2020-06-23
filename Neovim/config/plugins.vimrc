@@ -14,11 +14,9 @@ Plug 'mileszs/ack.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'sjl/gundo.vim'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sebdah/vim-delve'
 Plug 'xolox/vim-misc'
-Plug 'ryanoasis/vim-devicons'
-Plug 'liuchengxu/vista.vim'
 " #########################################################
 " #               FileType Specific Plugins               #
 " #########################################################

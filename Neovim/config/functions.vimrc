@@ -28,25 +28,6 @@ function! HighlightTrailingSpaces()
 endfunction
 
 " #########################################################
-" #                    Scratch Window                     #
-" #                                                       #
-" # - Popup scratch window for notes                      #
-" #########################################################
-function! g:ScratchGenerator()
-  echom "Creating scratchy..."
-  exe "new" . "__Scratchy__"
-  echom "Scratchy created!"
-endfunction
-
-function! g:PopulateTodo()
-  setlocal bufhidden=hide
-  setlocal noswapfile
-endfunction
-
-autocmd BufNewFile __Scratchy__ call s:ScratchMarkBuffer()
-command! Todo call g:ScratchGenerator()
-
-" #########################################################
 " #                    Fuzzy Funcs                        #
 " #                                                       #
 " # - Fuzzy ripgrep and fuzzy file search with preview    #
@@ -71,9 +52,3 @@ function! NearestMethodOrFunction() abort
 endfunction
 
 set statusline+=%{NearestMethodOrFunction()}
-
-" By default vista.vim never run if you don't call it explicitly.
-"
-" If you want to show the nearest function in your statusline automatically,
-" you can add the following line to your vimrc
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
