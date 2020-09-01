@@ -14,7 +14,7 @@ Plug 'mileszs/ack.vim'
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'sjl/gundo.vim'
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sebdah/vim-delve'
 Plug 'xolox/vim-misc'
 Plug 'ryanoasis/vim-devicons'
@@ -29,6 +29,7 @@ Plug 'shougo/neoinclude.vim', { 'for' : [ 'c', 'cpp' ] }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries', 'for': 'go' }
 Plug 'stamblerre/gocode', {'rtp': 'nvim/'}
 Plug 'deoplete-plugins/deoplete-go', { 'do': 'make'}
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
