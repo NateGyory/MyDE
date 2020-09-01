@@ -17,8 +17,6 @@ Plug 'sjl/gundo.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'sebdah/vim-delve'
 Plug 'xolox/vim-misc'
-Plug 'ryanoasis/vim-devicons'
-Plug 'liuchengxu/vista.vim'
 " #########################################################
 " #               FileType Specific Plugins               #
 " #########################################################

@@ -1,5 +1,0 @@
-#!/bin/bash
-
-# These need to be sourced from a bash script
-
-source /opt/asdf-vm/asdf.sh

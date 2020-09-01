@@ -1,18 +1,15 @@
 #!/bin/bash
 
 #Setup folders
-mkdir -p ~/.config/nvim/
+mkdir -p ~/.config/nvim/config
 mkdir -p ~/.local/share/nvim/site/autoload/
 
 echo "Setting up environment"
 cat ./farfrompuken.txt
 
-user=$USER
-
 # Ask for line to execute for package manager
 
 read -p 'Enter package manager install command: ' pkgCmd
-read -p 'Enter terminal command: ' terminalCmd
 
 if ! hash neofetch 2>/dev/null
 then
@@ -42,42 +39,45 @@ then
     eval "$pkgCmd fzf"
 fi
 
-if ! hash ag 2>/dev/null
+if ! hash rg 2>/dev/null
 then
     echo "====================================================================="
     echo "Installing ag"
-    eval "$pkgCmd the_silver_searcher"
+    eval "$pkgCmd ripgrep"
 fi
 
-if ! hash git 2>/dev/null
+if ! hash zsh 2>/dev/null
 then
     echo "====================================================================="
-    echo "Installing git"
-    eval "$pkgCmd git"
+    echo "Installing ag"
+    eval "$pkgCmd zsh"
 fi
 
 # Setup symlinks
 if [ ! -f ~/.config/nvim/init.vim ]; then
     pushd ~/.config/nvim
-    ln -s ~/Dev/MyDE/Neovim/init.vim ./
+    ln -s ~/Development/MyDE/Neovim/init.vim ./
+    pushd config
+    ln -s ~/Development/MyDE/Neovim/config/* ./
+    popd
     popd
 fi
 
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
     pushd ~/.local/share/nvim/site/autoload
-    ln -s ~/Dev/MyDE/Neovim/plug.vim ./
+    ln -s ~/Development/MyDE/Neovim/plug.vim ./
     popd
 fi
 
 if [ ! -f ~/.tmux.conf ]; then
     pushd ~
-    ln -s ~/Dev/MyDE/Tmux/tmux.conf ./.tmux.conf
+    ln -s ~/Development/MyDE/Tmux/tmux.conf ./.tmux.conf
     popd
 fi
 
 if [ ! -f ~/.tmux.conf.local ]; then
     pushd ~
-    ln -s ~/Dev/MyDE/Tmux/tmux.conf.local ./.tmux.conf.local
+    ln -s ~/Development/MyDE/Tmux/tmux.conf.local ./.tmux.conf.local
     popd
 fi
 
@@ -102,29 +102,14 @@ then
     echo "fzf did not install correctly. Please manually install"
 fi
 
-if ! hash ag 2>/dev/null
+if ! hash rg 2>/dev/null
 then
-    echo "ag did not install correctly. Please manually install"
+    echo "rg did not install correctly. Please manually install"
 fi
 
-if ! hash git 2>/dev/null
+if ! hash zsh 2>/dev/null
 then
-    echo "git did not install correctly. Please manually install"
+    echo "zsh did not install correctly. Please manually install"
 fi
 
-# Get oh-my-zsh and plugins
-getOMZ='sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"'
-eval '$terminalCmd $getomz'
-
-pushd .oh-my-zsh/plugins
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-git clone https://github.com/zsh-users/zsh-autosuggestions.git
-git clone https://github.com/djui/alias-tips.git
-popd
-
-pushd ~
-rm -f .zshrc
-ln -s ~/Dev/MyDE/Rc/zshrc ./.zshrc
-popd
-
-chsh --shell /bin/zsh $user
+chsh --shell /bin/zsh $USER
