@@ -18,44 +18,50 @@ The motivation behind MyDE is to encourage developers to roll up there sleeves a
 
 MyDE is a modular development enviorment that is comprised of the tools and customisations I am currently using. MyDE displays my personalized configuration of these powerful open source options so that others can utilize, customize and learn from them when developing.
 
-MyDE is comprised of:
+### MyDE is comprised of:
 
-* Neovim - Text editor.
-  * NERDTree - File system explorer.
-  * ALE - Asynchronous Lint Engine for error checking.
-  * Custom neovim commands and key bindings.
-* vim-plug - neovim package manager.
-* Tmux - Terminal multiplexer.
-  * Custom tmux key bindings.
-* Bashrc - Custom bash commands, terminal color enhancements, and aliases.
+**Desktop Environment**
+- rofi
+- i3-gaps
+    - i3bar
+        - bumblebee-status
 
-Supported Platforms: LINUX and Mac OS X.
+**Terminal Multiplexer**
+- tmux
+    - tmp
+ 
+**Terminal**
+- alacrity
 
-## How To Install
+**Shell**
+- zsh
+    - oh-my-zsh
 
-Run:
+**Text Editor**
+- neovim
 
-'''
->$ git clone https://github.com/NateGyory/MyDE.git
-'''
+**Theme**
+- [nord](https://www.nordtheme.com/)
 
-## How To Configure
-
-Run:
-
-'''
->$ ./config.sh
-'''
-
-If you dont have the required binaries the config.sh script will tell you which ones to download.
-
-**Note:** If you already have an init.vim or bashrc then config.sh will not overwrite them. config.sh will print a notification and It will be up to you to merge the files and resolve any conflicts.
-
-## Learning
-TODO
-
-## Customisation
-TODO
-
-## Acknowledgements
-
+### Setup MyDE
+Run the config shell script found in this repo to setup all of the **dot file sim links**.
+```sh
+$ ./config.sh
+```
+Next run the **pacman** package installer script. This will install all packages located in the arch managed repo
+```sh
+$ ./arch_packages.sh
+```
+Finally run the **yay** package installer script. This will install all the packages located in the aur repo
+```sh
+$ ./aur_packages.sh
+```
+Setup **nvim** plugins by running
+```sh
+:PlugInstall
+```
+Setup **tmux** plugins by running
+```sh
+M-a I
+```
+Install **oh-my-zsh** plugins by cloning the specified plugins from github

@@ -1,8 +1,0 @@
-#!/bin/bash
-
-alias cdh="cd ~/Dev/accordion"
-cdh
-
-rvm use 2.4.6@accordion
-rvm list
-rvm gemset list

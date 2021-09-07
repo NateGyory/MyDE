@@ -1,8 +1,0 @@
-#!/bin/bash
-
-alias cdh="cd ~/Dev/home-and-auto"
-cdh
-
-rvm use 2.4.6@home-and-auto
-rvm list
-rvm gemset list

@@ -1,9 +1,0 @@
-#!/bin/bash
-
-alias cdh="cd ~/Dev/umbrella"
-
-cdh
-
-rvm use 2.3.6@umbrella
-rvm list
-rvm gemset list

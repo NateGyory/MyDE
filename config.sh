@@ -1,65 +1,19 @@
 #!/bin/bash
 
 #Setup folders
-mkdir -p ~/.config/nvim/config
 mkdir -p ~/.local/share/nvim/site/autoload/
+mkdir -p ~/Documents/Notes
+mkdir -p ~/Pictures
+mkdir -p ~/Development
+mkdir -p ~/Build
+mkdir -p ~/Downloads
 
-echo "Setting up environment"
-cat ./farfrompuken.txt
-
-# Ask for line to execute for package manager
-
-read -p 'Enter package manager install command: ' pkgCmd
-
-if ! hash neofetch 2>/dev/null
-then
-    echo "====================================================================="
-    echo "Installing neofetch"
-    eval "$pkgCmd neofetch"
-fi
-
-if ! hash nvim 2>/dev/null
-then
-    echo "====================================================================="
-    echo "Installing neovim"
-    eval "$pkgCmd neovim"
-fi
-
-if ! hash tmux 2>/dev/null
-then
-    echo "====================================================================="
-    echo "Installing tmux"
-    eval "$pkgCmd tmux"
-fi
-
-if ! hash fzf 2>/dev/null
-then
-    echo "====================================================================="
-    echo "Installing fzf"
-    eval "$pkgCmd fzf"
-fi
-
-if ! hash rg 2>/dev/null
-then
-    echo "====================================================================="
-    echo "Installing ag"
-    eval "$pkgCmd ripgrep"
-fi
-
-if ! hash zsh 2>/dev/null
-then
-    echo "====================================================================="
-    echo "Installing ag"
-    eval "$pkgCmd zsh"
-fi
+echo 'Setting up environment'
 
 # Setup symlinks
-if [ ! -f ~/.config/nvim/init.vim ]; then
-    pushd ~/.config/nvim
-    ln -s ~/Development/MyDE/Neovim/init.vim ./
-    pushd config
-    ln -s ~/Development/MyDE/Neovim/config/* ./
-    popd
+if [ ! -f ~/.config/nvim ]; then
+    pushd ~/.config
+    ln -s ~/Development/MyDE/nvim ./
     popd
 fi
 
@@ -69,47 +23,34 @@ if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
     popd
 fi
 
-if [ ! -f ~/.tmux.conf ]; then
-    pushd ~
-    ln -s ~/Development/MyDE/Tmux/tmux.conf ./.tmux.conf
+if [ ! -f ~/.config/tmux ]; then
+    pushd ~/.config
+    ln -s ~/Development/MyDE/tmux ./
     popd
 fi
 
-if [ ! -f ~/.tmux.conf.local ]; then
-    pushd ~
-    ln -s ~/Development/MyDE/Tmux/tmux.conf.local ./.tmux.conf.local
+if [ ! -f ~/.config/rofi ]; then
+    pushd ~/.config
+    ln -s ~/Development/MyDE/rofi ./
     popd
 fi
 
-# Check required software
-if ! hash nvim 2>/dev/null
-then
-    echo "nvim did not install correctly. Please manually install"
+if [ ! -f ~/.config/alacritty ]; then
+    pushd ~/.config
+    ln -s ~/Development/MyDE/alacritty ./
+    popd
 fi
 
-if ! hash neofetch 2>/dev/null
-then
-    echo "neofetch did not install correctly. Please manually install"
+if [ ! -f ~/.config/i3 ]; then
+    pushd ~/.config
+    ln -s ~/Development/MyDE/i3 ./
+    popd
 fi
 
-if ! hash tmux 2>/dev/null
-then
-    echo "tmux did not install correctly. Please manually install"
-fi
-
-if ! hash fzf 2>/dev/null
-then
-    echo "fzf did not install correctly. Please manually install"
-fi
-
-if ! hash rg 2>/dev/null
-then
-    echo "rg did not install correctly. Please manually install"
-fi
-
-if ! hash zsh 2>/dev/null
-then
-    echo "zsh did not install correctly. Please manually install"
+if [ ! -f ~/.zshrc ]; then
+    pushd ~
+    ln -s ~/Development/MyDE/zsh/zshrc ./.zshrc
+    popd
 fi
 
 chsh --shell /bin/zsh $USER

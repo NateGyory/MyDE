@@ -41,7 +41,7 @@ distroArt()
 {
 
     if [ -x "$(command -v neofetch)" ]; then
-        neofetch
+        neofetch --ascii_distro arch_small -L
     else
         echo "Download neofetch for distro ASCII art!"
     fi
@@ -51,6 +51,7 @@ distroArt()
 #                               Aliases and exports                           #
 ###############################################################################
 alias v=/usr/bin/nvim
+alias t='/usr/bin/tmux -f ~/.config/tmux/tmux.conf'
 alias q=exit
 alias cp="cp -i"               # confirm before overwriting something
 alias df='df -h'               # human-readable sizes
@@ -58,31 +59,28 @@ alias free='free -m'           # show sizes in MB
 alias grep='grep --colour=auto'
 alias myde='cd $HOME/Development/MyDE'
 alias build='cd ~/Build'
-alias dev='cd ~/Dev'
+alias dev='cd ~/Development'
 alias notes='cd ~/Documents/Notes'
-alias pt=ptpython
+alias docs='cd ~/Documents'
 
 # Git
 alias gs='git log --graph --decorate --all'
-alias gab="git ls-remote --heads origin | awk '{print \$2}' | cut -c 12-"
 alias gdn='gd master --name-only | cat'
 alias gdv='gd master --name-only | cat | xargs nvim -p'
 
-# PG settings
-if [ -f ~/.pgrc ]; then
-    source ~/.pgrc
-fi
-
 # Exports
-export envs=$HOME/Envs
-export TERMINAL=konsole
+export TERM=alacritty
 export EDITOR=nvim
 export VISUAL=nvim
+
+# pyenv
+export PYENV_ROOT=$HOME/.pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+eval $(pyenv init --path)
 
 # My PATH
 export PATH=~/.local/bin:$PATH
 export PATH=/opt:$PATH
-export PATH=/home/nate/.fonts:$PATH
 
 # ZSH specifics
 export ZSH="/home/nate/.local/share/oh-my-zsh"
@@ -99,9 +97,9 @@ git
 systemd
 colored-man-pages
 fzf
+tmux
 )
 
-source $HOME/.bashrc
 source $ZSH/oh-my-zsh.sh
 
 ###############################################################################

@@ -1,8 +1,0 @@
-#!/bin/bash
-
-alias cdh="cd ~/Dev/actuary"
-cdh
-
-rvm use 2.4.3@actuary
-rvm list
-rvm gemset list
