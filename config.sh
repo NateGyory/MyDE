@@ -19,7 +19,7 @@ fi
 
 if [ ! -f ~/.local/share/nvim/site/autoload/plug.vim ]; then
     pushd ~/.local/share/nvim/site/autoload
-    ln -s ~/Development/MyDE/Neovim/plug.vim ./
+    ln -s ~/Development/MyDE/nvim/plug.vim ./
     popd
 fi
 
@@ -29,28 +29,26 @@ if [ ! -f ~/.config/tmux ]; then
     popd
 fi
 
-if [ ! -f ~/.config/rofi ]; then
-    pushd ~/.config
-    ln -s ~/Development/MyDE/rofi ./
-    popd
-fi
-
-if [ ! -f ~/.config/alacritty ]; then
-    pushd ~/.config
-    ln -s ~/Development/MyDE/alacritty ./
-    popd
-fi
-
-if [ ! -f ~/.config/i3 ]; then
-    pushd ~/.config
-    ln -s ~/Development/MyDE/i3 ./
-    popd
-fi
+#if [ ! -f ~/.config/rofi ]; then
+#    pushd ~/.config
+#    ln -s ~/Development/MyDE/rofi ./
+#    popd
+#fi
+#
+#if [ ! -f ~/.config/alacritty ]; then
+#    pushd ~/.config
+#    ln -s ~/Development/MyDE/alacritty ./
+#    popd
+#fi
+#
+#if [ ! -f ~/.config/i3 ]; then
+#    pushd ~/.config
+#    ln -s ~/Development/MyDE/i3 ./
+#    popd
+#fi
 
 if [ ! -f ~/.zshrc ]; then
     pushd ~
     ln -s ~/Development/MyDE/zsh/zshrc ./.zshrc
     popd
 fi
-
-chsh --shell /bin/zsh $USER

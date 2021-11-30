@@ -41,7 +41,7 @@ distroArt()
 {
 
     if [ -x "$(command -v neofetch)" ]; then
-        neofetch --ascii_distro arch_small -L
+        neofetch
     else
         echo "Download neofetch for distro ASCII art!"
     fi
@@ -69,21 +69,21 @@ alias gdn='gd master --name-only | cat'
 alias gdv='gd master --name-only | cat | xargs nvim -p'
 
 # Exports
-export TERM=alacritty
+#export TERM=alacritty
 export EDITOR=nvim
 export VISUAL=nvim
 
 # pyenv
-export PYENV_ROOT=$HOME/.pyenv
-export PATH=$PYENV_ROOT/bin:$PATH
-eval $(pyenv init --path)
+#export PYENV_ROOT=$HOME/.pyenv
+#export PATH=$PYENV_ROOT/bin:$PATH
+#eval $(pyenv init --path)
 
 # My PATH
 export PATH=~/.local/bin:$PATH
 export PATH=/opt:$PATH
 
 # ZSH specifics
-export ZSH="/home/nate/.local/share/oh-my-zsh"
+export ZSH="/home/nate/.oh-my-zsh"
 export UPDATE_ZSH_DAYS=14
 export LANG=en_US.UTF-8
 

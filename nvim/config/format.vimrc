@@ -51,4 +51,3 @@ function! ToggleHiddenAll()
 endfunction
 
 autocmd VimEnter * call ToggleHiddenAll()
-colorscheme nord
