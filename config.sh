@@ -29,24 +29,6 @@ if [ ! -f ~/.config/tmux ]; then
     popd
 fi
 
-#if [ ! -f ~/.config/rofi ]; then
-#    pushd ~/.config
-#    ln -s ~/Development/MyDE/rofi ./
-#    popd
-#fi
-#
-#if [ ! -f ~/.config/alacritty ]; then
-#    pushd ~/.config
-#    ln -s ~/Development/MyDE/alacritty ./
-#    popd
-#fi
-#
-#if [ ! -f ~/.config/i3 ]; then
-#    pushd ~/.config
-#    ln -s ~/Development/MyDE/i3 ./
-#    popd
-#fi
-
 if [ ! -f ~/.zshrc ]; then
     pushd ~
     ln -s ~/Development/MyDE/zsh/zshrc ./.zshrc

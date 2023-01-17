@@ -69,7 +69,6 @@ alias gdn='gd master --name-only | cat'
 alias gdv='gd master --name-only | cat | xargs nvim -p'
 
 # Exports
-#export TERM=alacritty
 export EDITOR=nvim
 export VISUAL=nvim
 
@@ -106,3 +105,5 @@ source $ZSH/oh-my-zsh.sh
 #                                   Main                                      #
 ###############################################################################
 distroArt
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
