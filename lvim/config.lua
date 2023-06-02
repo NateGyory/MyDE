@@ -2,7 +2,7 @@ require "user.keymaps"
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save.enabled = false
+--lvim.format_on_save.enabled = false
 lvim.colorscheme = "lunar"
 -- to disable icons and use a minimalist setup, uncomment the following
 -- lvim.use_icons = false
@@ -54,8 +54,8 @@ lvim.leader = "space"
 -- TODO: User Config for predefined plugins
 -- Snippits
 --
-require("luasnip.loaders.from_snipmate").lazy_load({paths = "~/.config/vim-snippets/snippets"})
-require("luasnip.loaders.from_snipmate").lazy_load({paths = "~/.config/lvim/my_snippets"})
+require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/.config/vim-snippets/snippets" })
+require("luasnip.loaders.from_snipmate").lazy_load({ paths = "~/.config/lvim/my_snippets" })
 -- require("luasnip.loaders.from_vscode").lazy_load() for visual studio code snippets
 
 -- After changing plugin config exit and reopen LunarVim, Run :PackerInstall :PackerCompile
@@ -162,8 +162,31 @@ lvim.builtin.treesitter.highlight.enable = true
 
 -- Additional Plugins
 lvim.plugins = {
-    "preservim/nerdtree"
+  "preservim/nerdtree",
+  "github/copilot.vim",
+  "AckslD/swenv.nvim",
+  "stevearc/dressing.nvim",
+  "mfussenegger/nvim-dap-python",
+  "nvim-neotest/neotest",
+  "nvim-neotest/neotest-python",
+  "p00f/clangd_extensions.nvim",
+  "Shatur/neovim-tasks",
+  "stevearc/overseer.nvim"
 }
+
+require "user.python"
+require "user.cpp"
+
+local overseer = require("overseer")
+overseer.setup({
+  templates = { "builtin", "myplugin.ros" },
+})
+
+-- bufferline to tab mode
+lvim.builtin.bufferline.options.mode = "tabs"
+
+-- Functions
+-- require('functions.close_hidden_buffers')
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 
