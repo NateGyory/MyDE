@@ -75,6 +75,10 @@ alias gs='git log --graph --decorate --all'
 alias gdn='gd master --name-only | cat'
 alias gdv='gd master --name-only | cat | xargs nvim -p'
 
+# Cmake
+alias csb='cmake -S . -B ./build'
+alias cb='cmake --build ./build'
+
 # Exports
 export EDITOR=nvim
 export VISUAL=nvim
