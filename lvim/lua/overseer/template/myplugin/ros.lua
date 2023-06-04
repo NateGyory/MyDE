@@ -7,9 +7,9 @@ return {
     -- This must return an overseer.TaskDefinition
     return {
       -- cmd is the only required field
-      cmd = { 'rostopic' },
+      cmd = { 'ros2' },
       -- additional arguments for the cmd
-      args = { "list" },
+      args = { "topic", "list" },
       -- the name of the task (defaults to the cmd of the task)
       name = "ROS Topic List",
       -- set the working directory for the task
