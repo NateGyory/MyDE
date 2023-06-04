@@ -15,7 +15,7 @@ nnoremap <Space>2 :set nornu<Cr>
 nnoremap <Space>v :vsplit<CR><C-w>w
 nnoremap <Space>f :Files<CR>
 nnoremap <Space>b :startinsert<CR><C-x><C-s>
-nnoremap <Space>a :RG<CR>
+nnoremap <Space>a :Rg<CR>
 nnoremap <Space>c :noh<Cr>
 nnoremap gn :GitGutterNextHunk<Cr>
 nnoremap gp :GitGutterPrevHunk<Cr>
