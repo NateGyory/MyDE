@@ -163,7 +163,6 @@ lvim.builtin.treesitter.highlight.enable = true
 -- Additional Plugins
 lvim.plugins = {
   "preservim/nerdtree",
-  "github/copilot.vim",
   "AckslD/swenv.nvim",
   "stevearc/dressing.nvim",
   "mfussenegger/nvim-dap-python",
@@ -171,16 +170,47 @@ lvim.plugins = {
   "nvim-neotest/neotest-python",
   "p00f/clangd_extensions.nvim",
   "Shatur/neovim-tasks",
-  "stevearc/overseer.nvim"
+  { -- This plugin
+    "Zeioth/compiler.nvim",
+    cmd = {"CompilerOpen", "CompilerToggleResults", "CompilerRedo"},
+    dependencies = { "stevearc/overseer.nvim" },
+    opts = {},
+  },
+  { -- The task runner we use
+    "stevearc/overseer.nvim",
+    commit = "400e762648b70397d0d315e5acaf0ff3597f2d8b",
+    cmd = { "CompilerOpen", "CompilerToggleResults", "CompilerRedo" },
+    opts = {
+      task_list = {
+        direction = "bottom",
+        min_height = 25,
+        max_height = 25,
+        default_detail = 1
+      },
+    },
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
 }
 
 require "user.python"
 require "user.cpp"
+require "user.copilot"
 
-local overseer = require("overseer")
-overseer.setup({
-  templates = { "builtin", "myplugin.ros" },
-})
+-- local overseer = require("overseer")
+-- overseer.setup({
+--   templates = { "builtin", "myplugin.ros", "myplugin.python" },
+-- })
 
 -- bufferline to tab mode
 lvim.builtin.bufferline.options.mode = "tabs"

@@ -11,14 +11,18 @@ lvim.format_on_save.pattern = { "*.py" }
 
 -- setup linting
 local linters = require "lvim.lsp.null-ls.linters"
-linters.setup { { command = "flake8", filetypes = { "python" } } }
+linters.setup {
+  { command = "flake8", filetypes = { "python" },
+  extra_args = { "--ignore", "E501" }
+  }
+}
 
 -- setup debug adapter
 lvim.builtin.dap.active = true
 local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 pcall(function()
   -- require("dap-python").setup(mason_path .. "packages/debugpy/venv/bin/python")
-  require("dap-python").setup("/usr/bin/python3")
+  require("dap-python").setup("python")
 end)
 
 -- setup testing
