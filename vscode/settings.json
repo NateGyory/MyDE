@@ -1,0 +1,96 @@
+{
+    "window.commandCenter": true,
+    "workbench.activityBar.orientation": "vertical",
+    "workbench.colorTheme": "Cursor Dark Midnight",
+    "cursor.cpp.enablePartialAccepts": true,
+    // Editor Settings
+    // Display line numbers relative to the current cursor position
+    "editor.lineNumbers": "relative",
+    // Prevent scrolling beyond the last line of the file
+    "editor.scrollBeyondLastLine": false,
+    // Keep 8 lines visible above and below the cursor when scrolling
+    "editor.cursorSurroundingLines": 8,
+    // Enable smooth scrolling animation
+    "editor.smoothScrolling": true,
+    // Enable bracket pair colorization for better readability
+    "editor.bracketPairColorization.enabled": true,
+    // Show vertical lines for bracket pairs
+    "editor.guides.bracketPairs": true,
+    // Configure minimap for better performance and visibility
+    "editor.minimap.renderCharacters": false,
+    "editor.minimap.scale": 2,
+    // Vim Configuration
+    // Enable easymotion plugin for quick navigation
+    "vim.easymotion": true,
+    // Enable incremental search highlighting
+    "vim.incsearch": true,
+    // Use system clipboard for vim operations
+    "vim.useSystemClipboard": true,
+    // Enable Ctrl key combinations
+    "vim.useCtrlKeys": true,
+    // Enable search highlight
+    "vim.hlsearch": true,
+    // Set space as the leader key
+    "vim.leader": " ",
+    // Enable vim-sneak plugin for improved motion
+    "vim.sneak": true,
+    // Use relative line numbers in normal mode
+    "vim.smartRelativeLine": true,
+    // Fix common fold-related issues
+    "vim.foldfix": true,
+    // Enable and configure yank highlighting
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.duration": 200,
+    // Customize search highlight color
+    "vim.searchHighlightColor": "rgba(180, 142, 173, 0.5)",
+    // Don't start on the first line of a file
+    "vim.startup.firstline": false,
+    // #TODO: experimenting with those
+    // Status Line Integration
+    // Enable status bar color control based on Vim mode
+    // "vim.statusBarColorControl": true,
+    // // Define colors for different Vim modes
+    // "vim.statusBarColors.normal": "#519aba",
+    // "vim.statusBarColors.insert": "#519aba",
+    // "vim.statusBarColors.visual": "#519aba",
+    // "vim.statusBarColors.visualline": "#519aba",
+    // "vim.statusBarColors.visualblock": "#519aba",
+    // "vim.statusBarColors.replace": "#519aba",
+    // Handle specific keys
+    // Insert Mode Keybindings
+    // Normal Mode Keybindings
+    // Multi-command Configuration
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "k"],
+            "after": ["<Esc>"]
+        }
+    ],
+    
+    "multiCommand.commands": [
+        {
+            // Toggle maximized terminal panel and focus terminal
+            "command": "multiCommand.toggleMaximizedPanelAndFocusTerminal",
+            "sequence": [
+                "workbench.action.toggleMaximizedPanel",
+                "workbench.action.terminal.focus"
+            ]
+        },
+        {
+            // Create new terminal and focus it
+            "command": "multiCommand.newTerminalAndFocus",
+            "sequence": [
+                "workbench.action.terminal.new",
+                "workbench.action.terminal.focus"
+            ]
+        }
+    ],
+    
+    // "workbench.colorCustomizations": {
+    //     "statusBar.background": "#519aba",
+    //     "statusBar.noFolderBackground": "#519aba",
+    //     "statusBar.debuggingBackground": "#519aba",
+    //     "statusBar.foreground": "#ffffff",
+    //     "statusBar.debuggingForeground": "#ffffff"
+    // },
+}
