@@ -85,6 +85,7 @@
             ]
         }
     ],
+    "clangd.path": "/home/nate/.config/Cursor/User/globalStorage/llvm-vs-code-extensions.vscode-clangd/install/20.1.8/clangd_20.1.8/bin/clangd",
     
     // "workbench.colorCustomizations": {
     //     "statusBar.background": "#519aba",
